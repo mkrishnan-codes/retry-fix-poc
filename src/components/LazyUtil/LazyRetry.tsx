@@ -16,6 +16,9 @@ const lazyRetry = <T extends ComponentType<any>>(
         window.sessionStorage.getItem("retry-lazy-refreshed") || "false"
       ) as boolean;
     } catch (e) {
+       if((e as any).name === "SecurityError"){
+          alert("allow cookies")
+        }
       // ignore error due to unwanted local storage values
     }
     // try to import the component
@@ -32,6 +35,7 @@ const lazyRetry = <T extends ComponentType<any>>(
           window.sessionStorage.setItem("retry-lazy-refreshed", "true"); // we are now going to refresh
           return window.location.reload(); // refresh the page
         }
+       
         return reject(error); // Default error behaviour as already tried refresh
       });
   });

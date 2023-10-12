@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import MainContent from "./components/Content/MainContent";
+import Counter from "./components/Counter";
 import MultiUpdateTest from "./components/MultiValueUpdateTest/MultiUpdateTest";
 
 
@@ -15,10 +16,9 @@ function App() {
           disabled={tryLoadComponents}
      
           onClick={() => setTryLoadComponents(true)}
-        >Try Load</button>
-        {tryLoadComponents && <MainContent />} */}
-
-        <MultiUpdateTest/>
+        >Try Load</button> */}
+        {/* {tryLoadComponents && <MainContent />} */}
+       <Counter/>
       </div>
     </div>
   );
